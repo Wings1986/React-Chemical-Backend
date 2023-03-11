@@ -1,12 +1,12 @@
-import express from "express";
 // import userRoutes from "../routes/userRoutes.js";
 // import chemicalRoutes from '../routes/chemicalRoutes.js'
+import app from '../api/index'
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cors from "cors";
 
-const app = express();
+// const app = express();
 app.use(cors());
 dotenv.config();
 

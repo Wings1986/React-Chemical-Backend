@@ -1,41 +1,29 @@
-"use strict";
+var express = require('express');
 
-var _express = _interopRequireDefault(require("express"));
+var app = express();
 
-var _mongoose = _interopRequireDefault(require("mongoose"));
+const whitelist = [
+  '*'
+];
 
-var _bodyParser = _interopRequireDefault(require("body-parser"));
-
-var _dotenv = _interopRequireDefault(require("dotenv"));
-
-var _cors = _interopRequireDefault(require("cors"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-// import userRoutes from "../routes/userRoutes.js";
-// import chemicalRoutes from '../routes/chemicalRoutes.js'
-var app = (0, _express["default"])();
-app.use((0, _cors["default"])());
-
-_dotenv["default"].config();
-
-app.use(_bodyParser["default"].json());
-
-_mongoose["default"].connect("mongodb+srv://demariogibson:Aurora1129@cluster0.ncd3l.mongodb.net/chemical_app?retryWrites=true&w=majority", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true
-}).then(function () {
-  return console.log("mongodb connected!!!!");
-})["catch"](function (err) {
-  return console.log(err);
+app.use((req, res, next) => {
+  const origin = req.get('referer');
+  const isWhitelisted = whitelist.find((w) => origin && origin.includes(w));
+  if (isWhitelisted) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+  }
+  // Pass to next layer of middleware
+  if (req.method === 'OPTIONS') res.sendStatus(200);
+  else next();
 });
 
-app.get('/', function (req, res) {
-  return res.send('working!!');
-}); // app.use("/", userRoutes);
-// app.use('/', chemicalRoutes)
+const setContext = (req, res, next) => {
+  if (!req.context) req.context = {};
+  next();
+};
+app.use(setContext);
 
-var port = process.env.PORT || 5000;
-app.listen(port, function () {
-  return console.log("server is running on port ".concat(port, "!!!"));
-});
+module.exports = app;

@@ -21,7 +21,7 @@
     "@babel/preset-env": "^7.16.11"
   },
   "scripts": {
-    "start": "nodemon --watch backend --exec babel-node server.js"
+    "start": "node --watch backend --exec babel-node index.js"
   },
   "author": "",
   "license": "ISC"

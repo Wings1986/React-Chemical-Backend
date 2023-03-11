@@ -20,9 +20,9 @@ mongoose
   .then(() => console.log("mongodb connected!!!!"))
   .catch((err) => console.log(err));
 
-app.use("/api", userRoutes);
+app.use("/api/", userRoutes);
 app.use('/api/', chemicalRoutes)
 
-const port = process.env.PORT || 5000;
+const port = 5000 || process.env.PORT;
 
 app.listen(port, () => console.log(`server is running on port ${port}!!!`));

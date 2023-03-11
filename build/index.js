@@ -2,10 +2,6 @@
 
 var _express = _interopRequireDefault(require("express"));
 
-var _userRoutes = _interopRequireDefault(require("./routes/userRoutes.js"));
-
-var _chemicalRoutes = _interopRequireDefault(require("./routes/chemicalRoutes.js"));
-
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
@@ -16,6 +12,8 @@ var _cors = _interopRequireDefault(require("cors"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+// import userRoutes from "../routes/userRoutes.js";
+// import chemicalRoutes from '../routes/chemicalRoutes.js'
 var app = (0, _express["default"])();
 app.use((0, _cors["default"])());
 
@@ -34,9 +32,9 @@ _mongoose["default"].connect("mongodb+srv://demariogibson:Aurora1129@cluster0.nc
 
 app.get('/', function (req, res) {
   return res.send('working!!');
-});
-app.use("/", _userRoutes["default"]);
-app.use('/', _chemicalRoutes["default"]);
+}); // app.use("/", userRoutes);
+// app.use('/', chemicalRoutes)
+
 var port = 5000 || process.env.PORT;
 app.listen(port, function () {
   return console.log("server is running on port ".concat(port, "!!!"));

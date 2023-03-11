@@ -1,6 +1,6 @@
 import express from "express";
-import userRoutes from "./routes/userRoutes.js";
-import chemicalRoutes from './routes/chemicalRoutes.js'
+// import userRoutes from "../routes/userRoutes.js";
+// import chemicalRoutes from '../routes/chemicalRoutes.js'
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
@@ -23,8 +23,8 @@ mongoose
 app.get('/', (req, res) => {
   return res.send('working!!');
 })
-app.use("/", userRoutes);
-app.use('/', chemicalRoutes)
+// app.use("/", userRoutes);
+// app.use('/', chemicalRoutes)
 
 const port = 5000 || process.env.PORT;
 

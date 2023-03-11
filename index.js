@@ -20,7 +20,7 @@ mongoose
   .then(() => console.log("mongodb connected!!!!"))
   .catch((err) => console.log(err));
 
-app.get('/', () => {
+app.get('/', (req, res) => {
   return res.send('working!!');
 })
 app.use("/", userRoutes);

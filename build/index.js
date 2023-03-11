@@ -35,7 +35,7 @@ app.get('/', function (req, res) {
 }); // app.use("/", userRoutes);
 // app.use('/', chemicalRoutes)
 
-var port = 5000 || process.env.PORT;
+var port = process.env.PORT || 5000;
 app.listen(port, function () {
   return console.log("server is running on port ".concat(port, "!!!"));
 });

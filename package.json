@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "nodemon --watch backend --exec babel-node api/index.js",
     "build": "babel api -d build",
-    "start": "nodemon --watch backend --exec babel-node api/index.js"
+    "start": "node build/index.js"
   },
   "author": "",
   "license": "ISC"

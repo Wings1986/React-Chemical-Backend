@@ -24,7 +24,9 @@
     "@babel/preset-env": "^7.16.11"
   },
   "scripts": {
-    "start": "nodemon --watch backend --exec babel-node index.js"
+    "dev": "nodemon --watch backend --exec babel-node index.js",
+    "build": "babel . -d build",
+    "start": "node build/index.js"
   },
   "author": "",
   "license": "ISC"

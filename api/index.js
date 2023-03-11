@@ -1,31 +1,41 @@
-import express from "express";
+"use strict";
+
+var _express = _interopRequireDefault(require("express"));
+
+var _mongoose = _interopRequireDefault(require("mongoose"));
+
+var _bodyParser = _interopRequireDefault(require("body-parser"));
+
+var _dotenv = _interopRequireDefault(require("dotenv"));
+
+var _cors = _interopRequireDefault(require("cors"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 // import userRoutes from "../routes/userRoutes.js";
 // import chemicalRoutes from '../routes/chemicalRoutes.js'
-import mongoose from "mongoose";
-import bodyParser from "body-parser";
-import dotenv from "dotenv";
-import cors from "cors";
+var app = (0, _express["default"])();
+app.use((0, _cors["default"])());
 
-const app = express();
-app.use(cors());
-dotenv.config();
+_dotenv["default"].config();
 
-app.use(bodyParser.json());
+app.use(_bodyParser["default"].json());
 
-mongoose
-  .connect(
-    "mongodb+srv://demariogibson:Aurora1129@cluster0.ncd3l.mongodb.net/chemical_app?retryWrites=true&w=majority",
-    { useUnifiedTopology: true, useNewUrlParser: true }
-  )
-  .then(() => console.log("mongodb connected!!!!"))
-  .catch((err) => console.log(err));
+_mongoose["default"].connect("mongodb+srv://demariogibson:Aurora1129@cluster0.ncd3l.mongodb.net/chemical_app?retryWrites=true&w=majority", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+}).then(function () {
+  return console.log("mongodb connected!!!!");
+})["catch"](function (err) {
+  return console.log(err);
+});
 
-app.get('/', (req, res) => {
+app.get('/', function (req, res) {
   return res.send('working!!');
-})
-// app.use("/", userRoutes);
+}); // app.use("/", userRoutes);
 // app.use('/', chemicalRoutes)
 
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => console.log(`server is running on port ${port}!!!`));
+var port = process.env.PORT || 5000;
+app.listen(port, function () {
+  return console.log("server is running on port ".concat(port, "!!!"));
+});

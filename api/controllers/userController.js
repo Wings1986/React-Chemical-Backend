@@ -3,7 +3,6 @@
 // import pkg from "express-validator";
 // import bcrypt from 'bcrypt'
 // const { validationResult } = pkg;
-
 // export const registerUser = async (req, res) => {
 //   const errors = validationResult(req);
 //   try {
@@ -11,18 +10,14 @@
 //       return res.status(422).json({ errors: errors.array() });
 //     } else {
 //       const { email, first_name, last_name, password } = req.body;
-
 //       const salt = await bcrypt.genSalt(10);
 //       const bcryptPassword = await bcrypt.hash(password, salt);
-
 //       const newUser = await User.create({
 //         email: email,
 //         first_name,
 //         last_name,
 //         password: bcryptPassword
 //       });
-
-
 //       if (newUser) {
 //         res.send({
 //           _id: newUser._id,
@@ -42,28 +37,22 @@
 //     console.log(err);
 //   }
 // };
-
 // export const loginUser = async (req, res) => {
-
 //   const { email, password } = req.body;
 //   try {
 //     const signinUser = await User.findOne({
 //       email
 //     });
-
 //     if (!signinUser) {
 //       return res.status(401).json("Invalid Credential");
 //     }
-
 //     const validPassword = await bcrypt.compare(
 //      password,
 //      signinUser.password
 //     );
-
 //     if (!validPassword) {
 //       return res.status(401).json("Invalid password");
 //     }
-
 //   else {
 //       res.send({
 //         _id: signinUser._id,
@@ -80,3 +69,4 @@
 //     console.log("commuing frombackend");
 //   }
 // };
+"use strict";

@@ -24,9 +24,9 @@
     "babel-plugin-module-resolver": "^5.0.0"
   },
   "scripts": {
-    "dev": "nodemon --watch backend --exec babel-node api/index.js",
-    "build": "babel api -d build",
-    "start": "node build/index.js"
+    "dev": "nodemon --watch backend --exec babel-node src/index.js",
+    "build": "babel src -d api",
+    "start": "node api/index.js"
   },
   "author": "",
   "license": "ISC"

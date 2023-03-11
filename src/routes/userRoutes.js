@@ -3,7 +3,9 @@
 // const { check } = pkg;
 // const router = express.Router();
 // import User from "../models/User.js";
+
 // import { registerUser, loginUser } from "../controllers/userController.js";
+
 // router.post("/register",
 //   [
 //     check("email", "email must be valid").isEmail()
@@ -26,6 +28,7 @@
 //   ],
 //   registerUser
 // );
+
 // router.post("/login", loginUser);
+
 // export default router;
-"use strict";

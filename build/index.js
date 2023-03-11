@@ -30,7 +30,7 @@ _mongoose["default"].connect("mongodb+srv://demariogibson:Aurora1129@cluster0.nc
   return console.log(err);
 });
 
-_index["default"].get('/', function (req, res) {
+_index["default"].get('/api/', function (req, res) {
   return res.send('working!!');
 }); // app.use("/", userRoutes);
 // app.use('/', chemicalRoutes)

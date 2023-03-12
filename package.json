@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines": {
-    "node": "14.x"
-  },
+  "type": "module",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
@@ -20,13 +18,10 @@
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
     "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.11",
-    "babel-plugin-module-resolver": "^5.0.0"
+    "@babel/preset-env": "^7.16.11"
   },
   "scripts": {
-    "dev": "nodemon --watch backend --exec babel-node src/index.js",
-    "build": "babel src -d build",
-    "start": "node build/index.js"
+    "start": "npx nodemon --watch backend --exec npx babel-node server.js"
   },
   "author": "",
   "license": "ISC"

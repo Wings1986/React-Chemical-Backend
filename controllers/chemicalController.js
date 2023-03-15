@@ -9,6 +9,15 @@ export const postChemical = async (req, res) => {
       }
 }
 
+export const updateChemical = async (req, res) => {
+    try{
+        const myChemical = await Chemical.findByIdAndUpdate(req.params.id, req.body)
+        res.json({msg: "successfully Updated!!", data: myChemical})
+    }catch(err){
+        res.send(err)
+    }
+}
+
 
 export const getChemicals = async (req, res) => {
     try{
